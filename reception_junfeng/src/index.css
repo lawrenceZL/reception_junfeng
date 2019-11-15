@@ -1,0 +1,164 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+.gmair_page {
+    margin: 0 0.8rem;
+}
+
+.gmair_logo {
+    text-align: center;
+    width: 100%;
+    padding: 6.5rem 0 1.5rem 0;
+}
+
+.gmair_logo_slogan {
+    text-align: center;
+    margin: 3rem 0 3rem 0;
+    letter-spacing: 0.55rem;
+    font-family: FZLanTingKanHei-R-GBK;
+    font-size: 1.7rem;
+    font-weight: lighter;
+    color: #FFFFFF;
+}
+
+.gmair_login_area, .gmair_register_area {
+    width: 85%;
+    margin: 7rem 7.5% 3.5rem 7.5%;
+}
+
+.gmair_login_area ::-webkit-input-placeholder, .gmair_register_area ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_area :-moz-placeholder, .gmair_register_area :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_area ::-moz-placeholder, .gmair_register_area ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_area :-ms-input-placeholder, .gmair_register_area :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_area ::-ms-input-placeholder, .gmair_register_area ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_area ::placeholder, .gmair_register_area ::placeholder { /* Most modern browsers support this now. */
+    color: #FFFFFF !important;
+}
+
+.gmair_login_btn, .gmair_register_btn {
+    width: 85%;
+    margin: 0 7.5% 0 7.5%;
+    text-align: center;
+}
+
+.input-group-addon {
+    padding: unset;
+    background-color: transparent;
+    border: unset;
+}
+
+.btn-default:focus, .btn-default:hover {
+    background-position: unset;
+}
+
+.gmair_machine_item_pm2_5 {
+    font-family: Helvetica;
+    color: #999999;
+}
+
+.btn-info {
+    background-color: #00AEEF !important;
+}
+
+.spin {
+    display: inline-block;
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+    -webkit-animation: rotate 3s linear infinite;
+    -moz-animation: rotate 3s linear infinite;
+    -o-animation: rotate 3s linear infinite;
+    animation: rotate 3s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-moz-keyframes rotate {
+    from {
+        -moz-transform: rotate(0deg)
+    }
+    to {
+        -moz-transform: rotate(359deg)
+    }
+}
+
+@-o-keyframes rotate {
+    from {
+        -o-transform: rotate(0deg)
+    }
+    to {
+        -o-transform: rotate(359deg)
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(359deg)
+    }
+}
+
+hr {
+    margin: 0.8rem 0 0.8rem 0;
+    border-top: 1px solid #eeeeee;
+}
+
+.pm2_5_excellent {
+    color: #00CC66;
+}
+
+.pm2_5_moderate {
+    color: #CC9900;
+}
+
+.pm2_5_sensative {
+    color: #FF9966;
+}
+
+.pm2_5_unhealthy {
+    color: #FF0066
+}
+
+.pm2_5_very_unhealthy {
+    color: #990099;
+}
+
+.pm2_5_hazardous {
+    color: #996666;
+}
+
+

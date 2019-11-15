@@ -1,0 +1,50 @@
+{
+  "name": "gmair-reception",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://reception.gmair.net",
+  "dependencies": {
+    "antd": "^3.7.3",
+    "antd-mobile": "^2.2.2",
+    "axios": "^0.18.0",
+    "china-area-data": "^4.0.0",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.13",
+    "install": "^0.12.1",
+    "moment": "^2.22.2",
+    "npm": "^6.5.0",
+    "qrcode.react": "^0.8.0",
+    "rc-slider": "^8.6.1",
+    "react": "^16.3.2",
+    "react-bootstrap": "^0.32.1",
+    "react-collapse": "^4.0.3",
+    "react-dom": "^16.3.2",
+    "react-motion": "^0.5.2",
+    "react-redux": "^5.0.7",
+    "react-reveal": "^1.2.2",
+    "react-reveal-text": "^0.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.1",
+    "redux": "^4.0.1",
+    "vconsole": "^3.2.0",
+    "history": "latest"
+  },
+  "scripts": {
+    "start": "set PORT=80&& react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.7.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "react-app-rewired": "^1.5.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
