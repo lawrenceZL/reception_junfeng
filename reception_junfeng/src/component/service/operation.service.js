@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const operation_service_url = 'https://microservice.gmair.net/reception/machine';
+const operation_service_url = 'http://www.jfczn.com:8017/reception/machine';
 
 
 //开启定时任务
 function start_timing(qrcode,startHour,startMinute,endHour,endMinute,status) {
-    let access_token = localStorage.getItem("access_token");
     let start_timing_url = operation_service_url + '/confirm/timing/power';
     let form = new FormData();
     form.append('qrcode', qrcode);
-    form.append('access_token', access_token);
     form.append('startHour', startHour);
     form.append('startMinute', startMinute);
     form.append('endHour', endHour);
@@ -24,8 +22,7 @@ function start_timing(qrcode,startHour,startMinute,endHour,endMinute,status) {
 
 //获取定时任务
 function obtain_timing_status(qrcode) {
-    let access_token = localStorage.getItem("access_token");
-    let obtain_timing_status_url=operation_service_url+"/probe/onoff/status/by/code?access_token="+access_token+"&qrcode="+qrcode;
+    let obtain_timing_status_url=operation_service_url+"/probe/onoff/status/by/code?qrcode="+qrcode;
     return axios.get(obtain_timing_status_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -44,11 +41,9 @@ function format_time(hour,minute) {
 }
 
 function push_picture(qrcode) {
-    let access_token=localStorage.getItem("access_token");
     let push_picture_url=operation_service_url+"/share";
     let form = new FormData();
     form.append('qrcode', qrcode);
-    form.append('access_token', access_token);
     return axios.post(push_picture_url, form).then(function (response) {
         return response.data;
     }).catch(() => {

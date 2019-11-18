@@ -1,13 +1,11 @@
 import axios from 'axios'
 
-const machine_service_url = 'https://microservice.gmair.net/reception/machine';
+const machine_service_url = 'http://www.jfczn.com:8017/reception/machine';
 
 function check_exist(qrcode) {
-    let access_token = localStorage.getItem("access_token");
     let qrcode_url = machine_service_url + '/qrcode/status';
     let form = new FormData();
     form.append('qrcode', qrcode);
-    form.append('access_token', access_token);
     return axios.post(qrcode_url, form).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -17,8 +15,7 @@ function check_exist(qrcode) {
 }
 
 function check_exist_bind(qrcode) {
-    let access_token = localStorage.getItem("access_token");
-    let exist_bind_url = machine_service_url + '/check/device/binded?access_token=' + access_token + '&qrcode=' + qrcode;
+    let exist_bind_url = machine_service_url + '/check/device/binded?qrcode=' + qrcode;
     return axios.get(exist_bind_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -27,8 +24,7 @@ function check_exist_bind(qrcode) {
 }
 
 function check_exist_name(bind_name) {
-    let access_token = localStorage.getItem("access_token");
-    let exist_name_url = machine_service_url + '/check/device/name/binded?access_token=' + access_token + '&deviceName=' + bind_name;
+    let exist_name_url = machine_service_url + '/check/device/name/binded?deviceName=' + bind_name;
     return axios.get(exist_name_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -48,8 +44,7 @@ function obtain_code_value_via_url(url) {
 }
 
 function obtain_model(model_id) {
-    let access_token = localStorage.getItem("access_token");
-    let obtain_url = machine_service_url + '/model/query/by/modelid?access_token=' + access_token + '&modelId=' + model_id;
+    let obtain_url = machine_service_url + '/model/query/by/modelid?modelId=' + model_id;
     return axios.get(obtain_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -58,8 +53,7 @@ function obtain_model(model_id) {
 }
 
 function check_online(qrcode) {
-    let access_token = localStorage.getItem('access_token');
-    let online_url = machine_service_url + '/checkonline?access_token=' + access_token + '&qrcode=' + qrcode;
+    let online_url = machine_service_url + '/checkonline?qrcode=' + qrcode;
     return axios.get(online_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -68,8 +62,7 @@ function check_online(qrcode) {
 }
 
 function obtain_machine_list() {
-    let access_token = localStorage.getItem('access_token');
-    let machine_list_url = machine_service_url + '/devicelist?access_token=' + access_token;
+    let machine_list_url = machine_service_url + '/devicelist'
     return axios.get(machine_list_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -78,8 +71,7 @@ function obtain_machine_list() {
 }
 
 function obtain_machine_status(qrcode) {
-    let access_token = localStorage.getItem('access_token');
-    let machine_status_url = machine_service_url + '/info/probe?access_token=' + access_token + '&qrcode=' + qrcode;
+    let machine_status_url = machine_service_url + '/info/probe?qrcode=' + qrcode;
     return axios.get(machine_status_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -88,11 +80,9 @@ function obtain_machine_status(qrcode) {
 }
 
 function operate(qrcode, component, operation) {
-    let access_token = localStorage.getItem('access_token');
     let power_operate_url = machine_service_url + '/operate/' + component + '/' + operation;
     let form = new FormData();
     form.append('qrcode', qrcode);
-    form.append('access_token', access_token);
     return axios.post(power_operate_url, form).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -101,10 +91,8 @@ function operate(qrcode, component, operation) {
 }
 
 function volume(qrcode, value) {
-    let access_token = localStorage.getItem('access_token');
     let volume_operation_url = machine_service_url + '/config/speed';
     let form = new FormData();
-    form.append('access_token', access_token);
     form.append('qrcode', qrcode);
     form.append('speed', value);
     return axios.post(volume_operation_url, form).then(response => {
@@ -115,10 +103,8 @@ function volume(qrcode, value) {
 }
 
 function light(qrcode, value) {
-    let access_token = localStorage.getItem('access_token');
     let light_operation_url = machine_service_url + '/config/light';
     let form = new FormData();
-    form.append('access_token', access_token);
     form.append('qrcode', qrcode);
     form.append('light', value);
     return axios.post(light_operation_url, form).then(response => {
@@ -129,11 +115,9 @@ function light(qrcode, value) {
 }
 
 function unbind(qrcode) {
-    let access_token = localStorage.getItem('access_token');
     let unbind_url = machine_service_url + '/consumer/qrcode/unbind';
     let form = new FormData();
     form.append('qrcode', qrcode);
-    form.append('access_token', access_token);
     return axios.post(unbind_url, form).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -146,8 +130,6 @@ function confirm_init(qrcode, bind_name) {
     let form = new FormData();
     form.append('qrcode', qrcode);
     form.append('deviceName', bind_name);
-    let access_token = localStorage.getItem('access_token');
-    form.append('access_token', access_token);
     return axios.post(confirm_init_url, form).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -160,8 +142,6 @@ function gain_share(qrcode, bind_name) {
     let form = new FormData();
     form.append('qrcode', qrcode);
     form.append('deviceName', bind_name);
-    let access_token = localStorage.getItem('access_token');
-    form.append('access_token', access_token);
     return axios.post(confirm_init_url, form).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -170,8 +150,7 @@ function gain_share(qrcode, bind_name) {
 }
 
 function obtain_control_option(modelId) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_control_option_url = machine_service_url + '/control/option/probe?access_token=' + access_token + '&modelId=' + modelId;
+    let obtain_control_option_url = machine_service_url + '/control/option/probe?modelId=' + modelId;
     return axios.get(obtain_control_option_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -180,8 +159,7 @@ function obtain_control_option(modelId) {
 }
 
 function obtain_volume_range(modelId) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_volume_url = machine_service_url + '/probe/volume?access_token=' + access_token + '&modelId=' + modelId;
+    let obtain_volume_url = machine_service_url + '/probe/volume?modelId=' + modelId;
     return axios.get(obtain_volume_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -190,8 +168,7 @@ function obtain_volume_range(modelId) {
 }
 
 function obtain_light_range(modelId) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_volume_url = machine_service_url + '/probe/light?access_token=' + access_token + '&modelId=' + modelId;
+    let obtain_volume_url = machine_service_url + '/probe/light?modelId=' + modelId;
     return axios.get(obtain_volume_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -200,8 +177,7 @@ function obtain_light_range(modelId) {
 }
 
 function obtain_current_city(qrcode) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_city_url = machine_service_url + '/probe/cityId/byqrcode?access_token=' + access_token + '&qrcode=' + qrcode;
+    let obtain_city_url = machine_service_url + '/probe/cityId/byqrcode?qrcode=' + qrcode;
     return axios.get(obtain_city_url).then(function (response) {
         return response.data
     }).catch(() => {
@@ -210,8 +186,7 @@ function obtain_current_city(qrcode) {
 }
 
 function obtain_pm2_5_weekly(qrcode) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_url = machine_service_url + '/probe/daily/pm25?access_token=' + access_token + '&qrcode=' + qrcode;
+    let obtain_url = machine_service_url + '/probe/daily/pm25?qrcode=' + qrcode;
     return axios.get(obtain_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -223,8 +198,7 @@ function obtain_pm2_5_weekly(qrcode) {
 }
 
 function obtain_bind_info(qrcode) {
-    let access_token = localStorage.getItem('access_token');
-    let obtain_url = machine_service_url + '/consumer/bind/probe/byqrcode?access_token=' + access_token + '&qrcode=' + qrcode;
+    let obtain_url = machine_service_url + '/consumer/bind/probe/byqrcode?qrcode=' + qrcode;
     return axios.get(obtain_url).then(function (response) {
         return response.data;
     }).catch(() => {
@@ -236,10 +210,8 @@ function obtain_bind_info(qrcode) {
 }
 
 function config_bind_name(qrcode, bind_name) {
-    let access_token = localStorage.getItem('access_token');
     let config_url = machine_service_url + '/modify/bind/name';
     let form = new FormData();
-    form.append('access_token', access_token);
     form.append('qrcode', qrcode);
     form.append('bindName', bind_name);
     return axios.post(config_url, form).then(function (response) {
@@ -253,8 +225,7 @@ function config_bind_name(qrcode, bind_name) {
 }
 
 function probe_component(model_id, component_name) {
-    let access_token = localStorage.getItem('access_token');
-    let probe_component_url = machine_service_url + '/model/component/probe?access_token=' + access_token + '&modelId=' + model_id + '&componentName=' + component_name;
+    let probe_component_url = machine_service_url + '/model/component/probe?modelId=' + model_id + '&componentName=' + component_name;
     return axios.get(probe_component_url).then(function (response) {
         return response.data;
     }).catch(() => {

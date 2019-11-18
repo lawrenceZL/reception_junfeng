@@ -10,12 +10,14 @@
     "china-area-data": "^4.0.0",
     "echarts": "^4.1.0",
     "echarts-for-react": "^2.0.13",
+    "history": "latest",
     "install": "^0.12.1",
     "moment": "^2.22.2",
     "npm": "^6.5.0",
     "qrcode.react": "^0.8.0",
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
+    "react-16-bootstrap-date-picker": "^5.1.2",
     "react-bootstrap": "^0.32.1",
     "react-collapse": "^4.0.3",
     "react-dom": "^16.3.2",
@@ -26,8 +28,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.1",
     "redux": "^4.0.1",
-    "vconsole": "^3.2.0",
-    "history": "latest"
+    "vconsole": "^3.2.0"
   },
   "scripts": {
     "start": "set PORT=80&& react-scripts start",
