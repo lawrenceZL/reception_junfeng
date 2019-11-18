@@ -17,7 +17,7 @@ class SettingSelect extends Component {
     }
 
     componentDidMount() {
-        localStorage.setItem("access_token","30a82cd6-b417-446b-9ff7-a01ecf6eec38")
+        // localStorage.setItem("access_token","4344bc0b-6819-49fc-9442-03d3cbafa840")
         this.props.startTimeChange(new Date("2018/12/14 21:00:00"));
         this.props.endTimeChange(new Date("2018/12/15 09:00:00"));
     }
@@ -78,7 +78,7 @@ class SettingSelect extends Component {
         const setting_gap = {
             width: `100%`,
             height: `1.4rem`,
-            backgroundColor: `#dbdbdb`,
+            backgroundColor: `#e6e6e6`,
         }
         const setting_item = {
             height: `4.5rem`,
@@ -87,31 +87,17 @@ class SettingSelect extends Component {
             paddingRight: `6%`,
             paddingLeft: `6%`,
         }
-        const inactive_setting_item = {
-            height: `4.5rem`,
-            lineHeight: `4.5rem`,
-            fontSize: `1.45rem`,
-            paddingRight: `6%`,
-            paddingLeft: `6%`,
-            backgroundColor: `#f2f2f2`
-        }
         const seperate_div = {
             height: `0.1rem`,
-            backgroundColor: `#dbdbdb`,
+            backgroundColor: `#e6e6e6`,
         }
-        console.log(this.props);
         return (
             <div>
                 <div className="setting_gap" style={setting_gap}></div>
                 <div className="setting_content" style={setting_content}>
                     <div className="setting_item" style={setting_item}>
                         <span><i className="fa fa-user-o" aria-hidden="true"></i>&nbsp;&nbsp;设备名称</span>
-                        {!this.props.username_edit &&
-                        <span style={{float: `right`}} onClick={this.props.editUsername}>{this.props.username}</span>
-                        }
-                        {this.props.username_edit &&
-                        <span style={{float: `right`}}><Input placeholder="修改名称" onBlur={this.usernameChangeOk}></Input></span>
-                        }
+                        <span style={{float: `right`}}>济福新风</span>
                     </div>
                 </div>
                 <div className="setting_gap" style={setting_gap}/>
@@ -173,10 +159,6 @@ class SettingSelect extends Component {
                         固件信息
                         <span style={{float:`right`}}>1.0</span>
                     </div>
-                    {/*<div className="seperate_div" style={seperate_div}></div>*/}
-                    {/*<div className="setting_item " style={inactive_setting_item}>*/}
-                        {/*检查更新*/}
-                    {/*</div>*/}
                 </div>
             </div>
 

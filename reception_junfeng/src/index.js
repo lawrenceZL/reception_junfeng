@@ -12,6 +12,7 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 import './antd-mobile.css'
 moment.locale('zh-cn');
+localStorage.setItem("access_token","4344bc0b-6819-49fc-9442-03d3cbafa840")
 
 let store=createStore(reducer);
 ReactDOM.render(<Provider store={store}><LocaleProvider locale={zhCN}><Gmair/></LocaleProvider></Provider>, document.getElementById('root'));

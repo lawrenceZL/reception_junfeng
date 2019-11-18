@@ -4,9 +4,6 @@ import SettingSelect from '../../containers/machine/settingSelect';
 import {NavBar, Icon} from 'antd-mobile';
 import {machine_service} from "../service/mahcine.service";
 import {operation_service} from "../service/operation.service";
-import {consumerservice} from "../service/consumer.service";
-import {util} from "../service/util";
-import {wechatservice} from "../service/wechat.service";
 import createHistory from 'history/createBrowserHistory'
 
 const history = createHistory();
@@ -18,36 +15,9 @@ class MachineOperation extends Component {
             mode: 0,
         }
     }
-    init_config = () => {
-        let url = window.location.href;
-        if (util.is_weixin()) {
-            wechatservice.configuration(url).then(response => {
-                if (response.responseCode === 'RESPONSE_OK') {
-                    let result = response.data;
-                    window.wx.config({
-                        beta: true,
-                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                        appId: result.appId, // 必填，公众号的唯一标识
-                        timestamp: result.timestamp, // 必填，生成签名的时间戳
-                        nonceStr: result.nonceStr, // 必填，生成签名的随机串
-                        signature: result.signature,// 必填，签名
-                        jsApiList: ['hideAllNonBaseMenuItem', 'closeWindow'] // 必填，需要使用的JS接口列表
-                    });
-                    window.wx.ready(() => {
-                        window.wx.hideAllNonBaseMenuItem();
-                    });
-                }
-            });
-        } else {
-            // alert("seems that you are not in wechat")
-        }
-    }
 
     componentDidMount() {
-        localStorage.setItem("access_token","30a82cd6-b417-446b-9ff7-a01ecf6eec38")
-        util.load_script("https://res.wx.qq.com/open/js/jweixin-1.2.0.js", () => {
-            this.init_config();
-        })
+        // localStorage.setItem("access_token","4344bc0b-6819-49fc-9442-03d3cbafa840")
         let qrcode = this.props.match.params.qrcode;
         this.props.qrcodeStore(qrcode);
         operation_service.obtain_timing_status(qrcode).then(response=>{
@@ -73,7 +43,7 @@ class MachineOperation extends Component {
         const setting_container = {
             height: window.innerHeight,
             width: window.innerWidth,
-            backgroundColor: `#dbdbdb`
+            backgroundColor: `#e6e6e6`
         }
         return (
 
