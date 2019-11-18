@@ -1,7 +1,6 @@
 import React from 'react'
 
-import {Icon, NavBar, Modal, Toast} from 'antd-mobile'
-import {message} from 'antd';
+import {NavBar, Modal} from 'antd-mobile'
 
 import {Label} from 'react-bootstrap'
 
@@ -17,13 +16,6 @@ import './machine_bind_name.css'
 
 import Location from "../citypicker/Location";
 import {airquality_service} from "../service/airquality.service";
-import {consumerservice} from "../service/consumer.service";
-import {operation_service} from "../service/operation.service";
-import createHistory from 'history/createBrowserHistory'
-
-const history = createHistory();
-
-const alert = Modal.alert;
 
 const gmair_machine_index = {
     width: `100%`,

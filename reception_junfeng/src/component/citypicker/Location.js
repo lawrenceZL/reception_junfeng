@@ -1,5 +1,5 @@
 import React from 'react'
-import {Col, Form, FormControl, FormGroup} from 'react-bootstrap'
+import { FormControl, FormGroup} from 'react-bootstrap'
 import {locationservice} from "../service/location.service";
 import {airquality_service} from "../service/airquality.service";
 
