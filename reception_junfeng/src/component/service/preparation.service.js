@@ -19,14 +19,18 @@ function pre_bind_single(records) {
 
 function pre_bind_batch(records) {
     let prebind_url = server_url + '/machine/bind/batch';
-    let form = new FormData();
     let list = [];
     for (let i = 0; i < records.length; i++) {
-        if (i == records.length - 1 || i % 30 == 0) {
-            list.add(records[i]);
+        list.push(records[i]);
+        if (i != 0 && i % 30 == 0 && i != records.length - 1) {
+            let form = new FormData();
+            form.append('bindList', JSON.stringify(list));
+            axios.post(prebind_url, form);
+            list = [];
         }
     }
-    form.append('bindList', JSON.stringify(records));
+    let form = new FormData();
+    form.append('bindList', JSON.stringify(list));
     return axios.post(prebind_url, form).then(function (response) {
         return response.data;
     }).catch((reason => {
