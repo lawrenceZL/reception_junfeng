@@ -43,7 +43,9 @@ class PM2_5Charts extends React.Component {
                     if (response.responseCode === 'RESPONSE_OK') {
                         let province_id = response.data[0].provinceId;
                         airquality_service.obtain_city_pm2_5_weekly(province_id).then(response => {
-                            this.store_outdoor_data(response);
+                            if(response.responseCode==="RESPONSE_OK"){
+                                this.store_outdoor_data(response);
+                            }
                         })
                     }
                 })
@@ -60,7 +62,12 @@ class PM2_5Charts extends React.Component {
             }
             if (response.responseCode === 'RESPONSE_NULL') {
                 locationservice.tell_location().then(response => {
-                    let city_id = response.data.code;
+                    let city_id
+                    if(response.responseCode==="RESPONSE_OK"){
+                        city_id = response.data.code;
+                    }else {
+                        city_id = "110101";
+                    }
                     locationservice.acquire_city_id(city_id).then(response => {
                         if (response.responseCode === 'RESPONSE_OK') {
                             city_id = response.data;
