@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const airquality_url = 'http://www.jfczn.com:8017/reception/airquality';
+const airquality_url = 'https://www.jfczn.com:8017/reception/airquality';
 
 function config_default_outdoor(qrcode, city_id) {
     let config_default_outdoor_url = airquality_url + '/city/modify';

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const server_url = 'http://www.jfczn.com:8016/preparation';
+const server_url = 'https://www.jfczn.com:8016/preparation';
 
 function pre_bind_single(records) {
     let prebind_url = server_url + '/machine/bind';
