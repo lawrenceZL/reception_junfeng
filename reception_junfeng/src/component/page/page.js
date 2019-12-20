@@ -5,6 +5,7 @@ import MachineDetail from "../machine/machinedetail";
 import DeviceOperation from '../../containers/machine/operation'
 import Prebind from "../prebind/prebind";
 import BindList from "../prebind/bindlist";
+import NetworkConfig from "../confignetwork/network";
 const gmair_page = {
     width: `100%`,
     height: `100%`,
@@ -23,6 +24,7 @@ class Page extends React.Component {
                 <Route path="/machine/operation/:qrcode" component={DeviceOperation}/>
                 <Route exact path='/prebind' render={() => (<Prebind/>)}/>
                 <Route exact path='/prebind/list' render={() => (<BindList/>)}/>
+                <Route exact path='/network/config' render={() => (<NetworkConfig/>)}/>
             </div>
         );
     }
