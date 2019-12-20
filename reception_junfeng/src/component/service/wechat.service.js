@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const wechat_url = 'https://www.jfczn.com/wechat';
+const wechat_url = 'https://www.jfczn.com/reception/wechat';
 
 function configuration(url) {
     let request_config_url = wechat_url + '/config/init';
