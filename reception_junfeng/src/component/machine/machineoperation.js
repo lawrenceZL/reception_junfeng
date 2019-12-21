@@ -240,8 +240,6 @@ const min_volume = {
 const current_volume = {
     width: `40%`,
     float: `left`,
-    width: `40%`,
-    float: `left`
 }
 
 const max_volume = {
