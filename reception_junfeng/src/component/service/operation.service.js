@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const operation_service_url = 'https://www.jfczn.com:8017/reception/machine';
+const operation_service_url = 'https://xf.jfczn.com:8017/reception/machine';
 
 
 //开启定时任务

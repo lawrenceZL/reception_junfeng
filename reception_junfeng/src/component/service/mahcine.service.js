@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const machine_service_url = 'https://www.jfczn.com:8017/reception/machine';
+const machine_service_url = 'https://xf.jfczn.com:8017/reception/machine';
 
 function check_exist(qrcode) {
     let qrcode_url = machine_service_url + '/qrcode/status';

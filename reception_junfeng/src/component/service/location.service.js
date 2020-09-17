@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const location_url = 'https://www.jfczn.com:8017/reception/location';
+const location_url = 'https://xf.jfczn.com:8017/reception/location';
 
 function list_province() {
     let request_province_url = location_url + '/province/list';
